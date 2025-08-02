@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class a {
     public static void main(String[] args) throws IOException {
@@ -9,30 +11,19 @@ public class a {
             int n = Integer.parseInt(read.readLine().trim());
             String[] val = read.readLine().split(" ");
             int[] arr = new int[n];
+            Map<Integer, Integer> list = new HashMap<>();
             for(int i = 0;i < n;i++) {
                 arr[i] = Integer.parseInt(val[i]);
-                
+                list.put(arr[i], list.getOrDefault(arr[i], 0) + 1);
             }
-             if (n == 1) {
-                System.out.println("NO");
-                continue;
+            boolean flag = true;
+            for(int key : list.keySet()) {
+                if(list.get(key) > n / 2){
+                    flag = false;
+                    break;
+                }
             }
-
-            int cnt = 0;
-            long sum = 0;
-
-            for (int i : arr) {
-                if (i == 1) cnt++;
-                sum += i;
-            }
-
-            sum -= n;
-
-            if (sum >= cnt) {
-                System.out.println("YES");
-            } else {
-                System.out.println("NO");
-            }
+            out.println(flag ? "YES" : "NO");
         }
         out.flush();
         out.close();
