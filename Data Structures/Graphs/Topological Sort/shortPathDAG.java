@@ -47,9 +47,11 @@ public class shortPathDAG {
                 if(edges != null) {
                     for(Edge edge : edges) {
                         int newDist = dist[node] + edge.weight;
-                        if(dist[edge.to] == null || newDist< dist[edge.to]) {
+                        System.out.println(node + " " + edge.to);
+                        if(dist[edge.to] == null || newDist < dist[edge.to]) {
                             dist[edge.to] = newDist;
-                        }
+                        } 
+                        System.out.println("dist: " + dist[edge.to]);
                     }
                 }
             }
