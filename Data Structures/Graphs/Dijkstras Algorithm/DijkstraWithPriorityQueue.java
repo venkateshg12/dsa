@@ -11,7 +11,7 @@ public class DijkstraWithPriorityQueue {
         }
     }
 
-    public static int[] dijkstra(List<List<Edge>> graph, int start) {
+    private static int[] dijkstra(List<List<Edge>> graph, int start) {
         int n = graph.size();
         int[] dist = new int[n];
         Arrays.fill(dist, Integer.MAX_VALUE);
