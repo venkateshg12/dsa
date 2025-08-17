@@ -9,32 +9,39 @@ public class a {
             int n = Integer.parseInt(read.readLine().trim());
             String[] val = read.readLine().split(" ");
             int[] arr = new int[n];
-            for(int i = 0;i < n;i++) {
+            boolean flag = true;
+            int p = 0;
+            for (int i = 0; i < n; i++) {
                 arr[i] = Integer.parseInt(val[i]);
-                
+                if (arr[i] != 0 && flag) {
+                    p = i;
+                    flag = false;
+                }
             }
-             if (n == 1) {
-                System.out.println("NO");
-                continue;
-            }
-
-            int cnt = 0;
-            long sum = 0;
-
-            for (int i : arr) {
-                if (i == 1) cnt++;
-                sum += i;
-            }
-
-            sum -= n;
-
-            if (sum >= cnt) {
-                System.out.println("YES");
+            if (n == 2) {
+                out.println(arr[0]);
             } else {
-                System.out.println("NO");
+                int m = p;
+                for (int i = p; i < n - 2; i++) {
+                    if (i + 1 == 0) {
+                        while(arr[m] == 0) {
+                            m++;
+                        }
+                        if (arr[m] > 0) {
+                            arr[i + 1]++;
+                            arr[m]--;
+                        }
+                    }
+                }
+                int count = 0;
+                for (int i = n - 2; i >= 0; i--) {
+                    count += arr[i];
+                }
+                out.println(count);
             }
         }
         out.flush();
         out.close();
         read.close();
-    }}
+    }
+}

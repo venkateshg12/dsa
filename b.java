@@ -7,34 +7,20 @@ public class b {
         PrintWriter out = new PrintWriter(System.out);
         int t = Integer.parseInt(read.readLine().trim());
         while (t-- > 0) {
-            String s = read.readLine().trim();
-            char[] arr = s.toCharArray();
-            int count = 0;
-            int n = 1;
-            for (int i = 0; i < 4; i++) {
-                if (i == 0) {
-                    if (Integer.parseInt(String.valueOf(arr[i])) == 1) {
-                        count++;
-                    } else {
-                        int num = (arr[i] == '0' ? 10 : Integer.parseInt(String.valueOf(arr[i])));
-                        count += num;
-                        n = (num == 10 ? 0 : num);
-                    }
-                } else {
-                    if (Integer.parseInt(String.valueOf(arr[i])) == n) {
-                        count++;
-                    } else {
-                        int num = (arr[i] == '0' ? 10 : Integer.parseInt(String.valueOf(arr[i])));
-                        int p = (n == 0 ? 10 : n);
-                        // out.println(Math.abs(num - p + 1) + " "+"i: " +i +"num: " +num+ "p: " +p);
-                        int tot = Math.abs(num - p) + 1;
-                        count += tot;
-                        n = (num == 10 ? 0 : num);
-                    }
-                }
-
+            int n = Integer.parseInt(read.readLine().trim());
+            String[] val1  = read.readLine().split(" ");
+            String[] val2  = read.readLine().split(" ");
+            int[] arra = new int[n];
+            int[] arrb = new int[n];
+            for(int i = 0;i < n;i++) {
+                arra[i]  = Integer.parseInt(val1[i]);
+                arrb[i]  = Integer.parseInt(val2[i]);
             }
-            out.println(count);
+            int s = 0;
+            for(int i = 0;i < n;i++) {
+                s += Math.max(0, arra[i] - arrb[i]);
+            }
+            out.println(s + 1);
         }
         out.close();
         out.flush();
