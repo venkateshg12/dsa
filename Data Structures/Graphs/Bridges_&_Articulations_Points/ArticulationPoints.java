@@ -5,6 +5,7 @@ public class ArticulationPoints {
     private List<Integer>[] adj; // Adjacency list
     private int time = 0; // Timer for discovery times
 
+    @SuppressWarnings("unchecked")
     public ArticulationPoints(int V) {
         this.V = V;
         adj = new ArrayList[V];
@@ -29,7 +30,7 @@ public class ArticulationPoints {
             if (!visited[v]) {
                 children++;
                 parent[v] = u;
-                APUtil(v, visited, disc, low, parent, isAP);
+                APUtil(v, visited, disc, low, parent, isAP); 
 
                 // Update low value
                 low[u] = Math.min(low[u], low[v]);
