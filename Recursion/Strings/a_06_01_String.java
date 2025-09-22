@@ -2,7 +2,7 @@
 // Program to find all the permutations in particular string.
 public class a_06_01_String {
     public static void main(String[] args) {
-        String s = "abcd";
+        String s = "abc";
         String p = "";
         permutations(s, p);
     }

@@ -4,10 +4,11 @@
  */
 public class a_01_Maze {
     public static void main(String[] args) {
-        maze(3, 3, " ");
+        int p = maze(3, 3);
+        System.out.println(p);
     }
 
-    public static void maze(int r, int c, String p) {
+    public static int maze(int r, int c) {
 
         if (r == 1 || c == 1) {
             return 1;

@@ -6,7 +6,7 @@ import java.util.*;
 
 public class a_05_String {
     public static void main(String[] args) {
-        int[] arr = { 1, 1, 3 };
+        int[] arr = { 1, 1, 3, 3 };
         List<List<Integer>> list = subset(arr);
         System.out.println(list);
     }
