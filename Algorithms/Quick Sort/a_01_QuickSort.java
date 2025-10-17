@@ -1,8 +1,6 @@
 // package dsa.Algorithms.QuickSort;
 
 import java.util.Arrays;
-
-
 public class a_01_QuickSort {
     public static void main(String[] args) {
         int[] arr = { 3, -4, 13, -34, 12, 7, 2, 1 };

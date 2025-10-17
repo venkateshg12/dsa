@@ -1,9 +1,6 @@
 
 public class AVL {
-    public AVL() {
-
-    }
-
+   
     private class Node {
         int value;
         Node left;
@@ -102,16 +99,15 @@ public class AVL {
         return c;
     }
 
-    private Node leftRotate(Node c) {
-        Node p = c.right;
-        Node t = p.left;
+    private Node leftRotate(Node p) {
+        Node c = p.right;
+        Node t = c.left;
         // rotate
-        p.left = c;
-        c.right = t;
-
-        c.height = Math.max(height(c.left), height(c.right)) + 1;
+        c.left = p;
+        p.right = t;
         p.height = Math.max(height(p.left), height(p.right)) + 1;
-        return p;
+        c.height = Math.max(height(c.left), height(c.right)) + 1;
+        return c;
     }
 
     public void display() {
