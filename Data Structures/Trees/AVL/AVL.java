@@ -152,7 +152,7 @@ private Node delete(Node node, int value) {
         }
 
         // Case 3: Two children
-        Node successor     findMin(node.right); // smallest in right subtree
+        Node successor =   findMin(node.right); // smallest in right subtree
         node.value = successor.value; // copy value
         node.right = delete(node.right, successor.value); // delete successor
     }
