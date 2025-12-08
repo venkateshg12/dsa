@@ -122,4 +122,52 @@ public class AVL {
         display(node.left, "Left child of " + node.value + " : ");
         display(node.right, "Right child of " + node.value + " : ");
     }
+
+    public void delete(int value) {
+    root = delete(root, value);
+}
+
+private Node delete(Node node, int value) {
+    if (node == null)
+        return null;
+
+    // Step 1: Normal BST deletion
+    if (value < node.value) {
+        node.left = delete(node.left, value);
+    } else if (value > node.value) {
+        node.right = delete(node.right, value);
+    } else {
+        // Node to delete found
+
+        // Case 1: No child
+        if (node.left == null && node.right == null) {
+            return null;
+        }
+
+        // Case 2: One child
+        if (node.left == null) {
+            return node.right;
+        } else if (node.right == null) {
+            return node.left;
+        }
+
+        // Case 3: Two children
+        Node successor =   findMin(node.right); // smallest in right subtree
+        node.value = successor.value; // copy value
+        node.right = delete(node.right, successor.value); // delete successor
+    }
+
+    // Step 2: Update height
+    node.height = Math.max(height(node.left), height(node.right)) + 1;
+
+    // Step 3: Rebalance
+    return rotate(node);
+}
+
+private Node findMin(Node node) {
+    while (node.left != null) {
+        node = node.left;
+    }
+    return node;
+}
 }
