@@ -30,5 +30,26 @@ public class a_07_cycle_detect_dfs {
 
         adj.get(7).add(5);
         adj.get(7).add(6);
+
+        boolean[] visited = new boolean[n + 1];
+
+        boolean isCycle = dfs(1, -1, visited, adj);
+        System.out.println(isCycle ? "Cycle detected" : "No Cycle was detected");
+    }
+
+    public static boolean dfs(int node, int parent, boolean[] visited, ArrayList<ArrayList<Integer>> list) {
+        visited[node] = true;
+        for (Integer adjElement : list.get(node)) {
+            if (!visited[adjElement]) {
+                if (dfs(adjElement, node, visited, list)) {
+                    return true;
+                }
+            } else if (parent != adjElement) {
+                return true;
+            }
+        }
+        return false;
     }
 }
+// TC ---> O(N) + o(N)
+// SC ---> o(N + 2E) + O(N)-(for loop connected components)

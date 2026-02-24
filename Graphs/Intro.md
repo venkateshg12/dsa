@@ -15,3 +15,9 @@ Breadth First Search(BFS):
 
 Depth First Search(DFS):
     -- a graph traversal algorithm that explores as far as possible along each backtracking.
+
+Bipartite Graph:
+    -- The division of all vertices into 2 groups such that no two vertices (adjacent vertices) have same color.
+    -- linear graphs are always bipartite graph.
+    -- Any graph with odd cycle length can never be a bipartite graph (non - bipartite graph).
+    -- Any graph with even cycle length can  be a bipartite graph.
