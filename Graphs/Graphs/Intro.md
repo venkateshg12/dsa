@@ -21,7 +21,3 @@ Bipartite Graph:
     -- linear graphs are always bipartite graph.
     -- Any graph with odd cycle length can never be a bipartite graph (non - bipartite graph).
     -- Any graph with even cycle length can  be a bipartite graph.
-
-Topological Sorting:
-    -- only exists on directed acyclic graph
-    -- linear ordering of vertices such that if there is an edge between u & v , u appears before that v in that ordering
