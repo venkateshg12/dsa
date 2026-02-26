@@ -23,5 +23,5 @@ Bipartite Graph:
     -- Any graph with even cycle length can  be a bipartite graph.
 
 Topological Sorting:
-    -- only exists on directed acyclic graph
+    -- only exists on directed acyclic graph.
     -- linear ordering of vertices such that if there is an edge between u & v , u appears before that v in that ordering
