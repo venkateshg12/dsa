@@ -52,7 +52,12 @@ public class a_16_dijkstras_algo {
         adj.get(4).add(new ArrayList<>(Arrays.asList(5, 3)));
         adj.get(5).add(new ArrayList<>(Arrays.asList(4, 3)));
 
-        PriorityQueue<Pair> pq = new PriorityQueue<Pair>((a, b) -> a.dist - b.dist);
+        PriorityQueue<Pair> pq = new PriorityQueue<Pair>((a, b) -> {
+            if (a.dist == b.dist) {
+                return a.dist - b.dist;
+            }
+            return a.node - b.node;
+        });
         int[] distance = new int[V];
         Arrays.fill(distance, Integer.MAX_VALUE);
         distance[0] = 0;
@@ -66,7 +71,7 @@ public class a_16_dijkstras_algo {
                 int edgeWeight = adj.get(node).get(i).get(1);
                 int adjNode = adj.get(node).get(i).get(0);
                 if (dist + edgeWeight < distance[adjNode]) {
-                    distance[adjNode] = edgeWeight + adjNode;
+                    distance[adjNode] = edgeWeight + dist;
                     pq.add(new Pair(distance[adjNode], adjNode));
                 }
             }

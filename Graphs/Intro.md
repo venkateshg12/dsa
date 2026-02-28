@@ -24,4 +24,12 @@ Bipartite Graph:
 
 Topological Sorting:
     -- only exists on directed acyclic graph.
-    -- linear ordering of vertices such that if there is an edge between u & v , u appears before that v in that ordering
+    -- linear ordering of vertices such that if there is an edge between u & v , u appears before that v in that ordering.
+
+Dijkstra's Algorithm: 
+    -- Dijkstra’s Algorithm is a graph algorithm used to find the shortest path from a single source node to all other nodes in a weighted graph.
+    -- All weights are non-negative
+    -- Undirected graphs
+    -- Directed graphs
+    -- Graphs that contain cycles
+    -- dosn't work on negative weights or cycles.(fall into an infinite loop)
