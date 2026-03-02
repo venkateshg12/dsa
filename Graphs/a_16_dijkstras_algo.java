@@ -68,8 +68,8 @@ public class a_16_dijkstras_algo {
             pq.remove();
 
             for (int i = 0; i < adj.get(node).size(); i++) {
-                int edgeWeight = adj.get(node).get(i).get(1);
                 int adjNode = adj.get(node).get(i).get(0);
+                int edgeWeight = adj.get(node).get(i).get(1);
                 if (dist + edgeWeight < distance[adjNode]) {
                     distance[adjNode] = edgeWeight + dist;
                     pq.add(new Pair(distance[adjNode], adjNode));
@@ -79,3 +79,18 @@ public class a_16_dijkstras_algo {
         System.out.println(Arrays.toString(distance));
     }
 }
+// TC --> E log(V)
+// E --> Total no of edges
+// V --> Total no of nodes 
+/* 
+    Time Complexity:
+    O(V x (pop vertex from min heap + no of edges on each vertex  x  push it into PQ))
+    O(V x (log(heap size ) + no of edges x log(heap size))
+    O(V x (log(heap size)(no of edges + 1))) no of edges = V - 1
+    O(V x (log(heap size)(V - 1 + 1)))
+    O(V x (log(heap size) x V))
+    O(V ^ 2 x log(heap size))
+    O(V ^ 2 x log(V ^ 2))
+    O(V ^ 2 x 2 x log(V)) where V^2 is [for every V vertices it connects (V - 1) vertices].
+    O(E log (V))
+ */

@@ -33,3 +33,4 @@ Dijkstra's Algorithm:
     -- Directed graphs
     -- Graphs that contain cycles
     -- dosn't work on negative weights or cycles.(fall into an infinite loop)
+    -- We are using here PriorityQueue here because, if we use queue also we get answer but using Queue leads to unecessary path checks leading to going through all iterations of  the paths  and takes more time complexity
