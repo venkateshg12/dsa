@@ -33,4 +33,24 @@ Dijkstra's Algorithm:
     -- Directed graphs
     -- Graphs that contain cycles
     -- dosn't work on negative weights or cycles.(fall into an infinite loop)
-    -- We are using here PriorityQueue here because, if we use queue also we get answer but using Queue leads to unecessary path checks leading to going through all iterations of  the paths  and takes more time complexity
+    -- We are using here PriorityQueue here because, if we use queue also we get answer but using Queue leads to unecessary path checks leading to going through all iterations of  the paths  and takes more time complexity.
+
+Bellman Ford Algorithm.
+    -- while dijkstra algo fails on negative edge weights and negative cycles.
+    -- helps to detect negative edge cycles.
+    -- used to find the shortest path from a single source vertex to all other vertices in a weighted graph, even when   negative edge weights exist.
+
+Floyd Warshal Algorithm.
+    -- finds the shortest distance between every pair of vertices in a weighted graph.
+    -- multisource shortest path algorithm.
+    -- go via every node
+    -- helps to detect negative edge cycles.
+
+Spanning Tree
+    -- a tree in which we have n nodes and n - 1 edges and all nodes reachable from each other.
+
+Minimum Spanning Tree
+    -- having least sum edge weight is known as Minimum Spanning Tree.
+
+Prim's Algorithm
+    -- helps to find the minimum spanning tree.
