@@ -54,3 +54,7 @@ Minimum Spanning Tree
 
 Prim's Algorithm
     -- helps to find the minimum spanning tree.
+
+Strongly Connected Components
+    -- strictly for directed graphs.
+    -- every pair is reached from each other.
