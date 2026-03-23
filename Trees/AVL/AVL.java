@@ -1,6 +1,6 @@
 
 public class AVL {
-   
+
     private class Node {
         int value;
         Node left;
@@ -60,7 +60,7 @@ public class AVL {
 
     private Node rotate(Node node) {
         int balance = height(node.left) - height(node.right);
-        if (balance > 1) { 
+        if (balance > 1) {
             // left heavy
             if (height(node.left.left) - height(node.left.right) > 0) {
                 // left left case
@@ -70,7 +70,6 @@ public class AVL {
             if (height(node.left.left) - height(node.left.right) < 0) {
                 // left right case
                 node.left = leftRotate(node.left);
-
                 return rightRotate(node);
             }
         }
@@ -124,50 +123,50 @@ public class AVL {
     }
 
     public void delete(int value) {
-    root = delete(root, value);
-}
+        root = delete(root, value);
+    }
 
-private Node delete(Node node, int value) {
-    if (node == null)
-        return null;
-
-    // Step 1: Normal BST deletion
-    if (value < node.value) {
-        node.left = delete(node.left, value);
-    } else if (value > node.value) {
-        node.right = delete(node.right, value);
-    } else {
-        // Node to delete found
-
-        // Case 1: No child
-        if (node.left == null && node.right == null) {
+    private Node delete(Node node, int value) {
+        if (node == null)
             return null;
+
+        // Step 1: Normal BST deletion
+        if (value < node.value) {
+            node.left = delete(node.left, value);
+        } else if (value > node.value) {
+            node.right = delete(node.right, value);
+        } else {
+            // Node to delete found
+
+            // Case 1: No child
+            if (node.left == null && node.right == null) {
+                return null;
+            }
+
+            // Case 2: One child
+            if (node.left == null) {
+                return node.right;
+            } else if (node.right == null) {
+                return node.left;
+            }
+
+            // Case 3: Two children
+            Node successor = findMin(node.right); // smallest in right subtree
+            node.value = successor.value; // copy value
+            node.right = delete(node.right, successor.value); // delete successor
         }
 
-        // Case 2: One child
-        if (node.left == null) {
-            return node.right;
-        } else if (node.right == null) {
-            return node.left;
+        // Step 2: Update height
+        node.height = Math.max(height(node.left), height(node.right)) + 1;
+
+        // Step 3: Rebalance
+        return rotate(node);
+    }
+
+    private Node findMin(Node node) {
+        while (node.left != null) {
+            node = node.left;
         }
-
-        // Case 3: Two children
-        Node successor =   findMin(node.right); // smallest in right subtree
-        node.value = successor.value; // copy value
-        node.right = delete(node.right, successor.value); // delete successor
+        return node;
     }
-
-    // Step 2: Update height
-    node.height = Math.max(height(node.left), height(node.right)) + 1;
-
-    // Step 3: Rebalance
-    return rotate(node);
-}
-
-private Node findMin(Node node) {
-    while (node.left != null) {
-        node = node.left;
-    }
-    return node;
-}
 }
