@@ -1,4 +1,3 @@
-// package Trees.BST;
 
 public class BST {
     public BST() {
@@ -47,10 +46,10 @@ public class BST {
         if (start >= end) {
             return;
         }
-        int mid = (end + start) / 2;
+        int mid = start + (end - start) / 2;
         this.insert(nums[mid]);
         populateSort(nums, start, mid);
-        populateSort(nums, mid + 1, nums.length);
+        populateSort(nums, mid + 1, end);
     }
 
     public void insert(int value) {
@@ -100,17 +99,16 @@ public class BST {
         if (node == null) {
             return;
         }
+        System.out.println(node.val);
         preorder(node.left);
-        System.out.println("left of " + node.val + "  ");
         preorder(node.right);
-        System.out.println("right of " + node.val + "  ");
     }
 
     public void inOrder() {
         inOrder(root);
     }
 
-     private void inOrder(Node node) {
+    private void inOrder(Node node) {
         if (node == null) {
             return;
         }
@@ -122,12 +120,13 @@ public class BST {
     public void postOrder() {
         postOrder(root);
     }
-     private void postOrder(Node node) {
+
+    private void postOrder(Node node) {
         if (node == null) {
             return;
         }
-        inOrder(node.left);
-        System.out.println(node.val + "  ");
-        inOrder(node.right);
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.println(node.val);
     }
 }
